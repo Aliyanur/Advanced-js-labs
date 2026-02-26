@@ -1,0 +1,11 @@
+Knowing pattern category help me understand problem faster. When problem is about creating objects, I think about creational patterns. When problem is about communication, behavioral patterns are more useful. Chapter 6 explain that categories organize patterns by problem type.
+
+Gamma et al. (1995) say design patterns describe common design solution. Categories make this easier to use in real project. Without categories, it is hard to choose correct pattern.
+
+One example is notification system. If I use structural pattern instead of Observer, components become tightly connected. Observer allow many listeners without changing sender code. This make system more flexible.
+
+Another example is chat system. Mediator is better than direct calls because objects do not depend on each other. Behavioral patterns help manage interaction logic.
+
+This lab change how I see patterns. They are not just code, but tools for thinking. Choosing correct category help avoid bad design and make code easier to maintain.
+
+Reference: Gamma et al. (1995), cited in Osmani (2023), Chapter 6.
