@@ -1,0 +1,13 @@
+{
+  "name": "task2",
+  "version": "1.0.0",
+  "description": "Student Name: Kaldybay Aliyanur Student ID: 250730 Date: 06.03.2026",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Aliyanur Kaldybay",
+  "license": "ISC"
+}
