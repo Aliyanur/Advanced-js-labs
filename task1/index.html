@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flyweight Forest</title>
+</head>
+
+<body>
+
+<h2>Flyweight Forest Demo</h2>
+
+<canvas id="forestCanvas" width="900" height="600"></canvas>
+
+<script type="module">
+
+import { ForestRenderer } from "./forest/ForestRenderer.js";
+
+const forest = new ForestRenderer("forestCanvas");
+
+forest.generateForest(10000);
+
+const stats = forest.render();
+
+console.log("Forest stats:", stats);
+
+</script>
+<script type="module" src="./test/benchmark.js"></script>
+
+</body>
+</html>
