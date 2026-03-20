@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Todo Delegation</title>
+</head>
+
+<body>
+
+<h2>Todo List (1000 items)</h2>
+
+<div id="todo-list"></div>
+
+<script type="module">
+
+import { TodoList } from "./todo/TodoList.js"
+
+const todo=new TodoList("todo-list")
+
+todo.generateItems(1000)
+
+</script>
+
+</body>
+</html>
