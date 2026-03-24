@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="app"></div>
+
+  <script type="module">
+    import { UserProfileViewModel } from './mvvm/viewmodel/UserProfileViewModel.js';
+    import { UserProfileForm } from './mvvm/view/UserProfileForm.js';
+
+    const vm = new UserProfileViewModel();
+    const form = new UserProfileForm('app', vm);
+
+    form.render();
+  </script>
+</body>
+</html>
