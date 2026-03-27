@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>News Pub/Sub Demo</title>
+</head>
+<body>
+  <h1>News System Demo</h1>
+  <div id="output"></div>
+
+  <script type="module">
+    import { NewsPublisher } from "./publisher/NewsPublisher.js";
+    import { EmailNotifier } from "./subscribers/EmailNotifier.js";
+    import { PushNotifier } from "./subscribers/PushNotifier.js";
+
+    const output = document.getElementById("output");
+
+    function log(message) {
+      console.log(message);
+      output.innerHTML += `<p>${message}</p>`;
+    }
+
+    const publisher = new NewsPublisher("BBC");
+
+    const email = new EmailNotifier("test@mail.com");
+    email.subscribe(["sports", "tech"]);
+
+    const push = new PushNotifier();
+    push.subscribe();
+
+    // Override methods to show on page
+    email.sendEmail = function(article) {
+      this.sentCount++;
+      log(`[Email ${this.email}] ${article.headline}`);
+    };
+
+    // Fix PushNotifier output
+    const originalSubscribe = push.subscribe;
+    push.subscribe = function() {
+      import("./pubsub/EventBus.js").then(({ default: eventBus }) => {
+        eventBus.subscribe("news:all", article => {
+          log(`[Push] ${article.headline}`);
+        });
+      });
+    };
+    push.subscribe();
+
+    // Publish articles
+    publisher.publishArticle("sports", "Football News", "Match result");
+    publisher.publishArticle("tech", "AI News", "New AI released", "urgent");
+
+    log("✅ Check console + page output");
+  </script>
+
+</body>
+</html>
