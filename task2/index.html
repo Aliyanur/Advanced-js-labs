@@ -1,0 +1,18 @@
+<script type="module">
+    import { Light } from "./devices/Light.js";
+    import { HomeMediator } from "./mediator/HomeMediator.js";
+    import { TurnOnLightCommand } from "./commands/LightCommands.js";
+    import { CommandManager } from "./commands/CommandManager.js";
+  
+    const mediator = new HomeMediator();
+  
+    const light = new Light("Living Room Light");
+    mediator.registerDevice(light);
+  
+    const manager = new CommandManager();
+  
+    const cmd = new TurnOnLightCommand(light);
+  
+    manager.execute(cmd);
+    manager.undo();
+  </script>
