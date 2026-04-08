@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Task2 Test</h2>
+
+  <script type="module">
+    import PromiseHttpClient from '../task1/async/PromiseHttpClient.js';
+    import { DataFetcher } from './async/DataFetcher.js';
+
+    const client = new PromiseHttpClient('https://jsonplaceholder.typicode.com');
+    const fetcher = new DataFetcher(client);
+
+    async function run() {
+      const data = await fetcher.fetchUserWithDetails(1);
+      console.log(data);
+    }
+
+    run();
+  </script>
+</body>
+</html>
