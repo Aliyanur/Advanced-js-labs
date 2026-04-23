@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Islands</title>
+    </head>
+    <body>
+        <h1>Product Page</h1>
+
+        <div class="islands" data-island-type="counter">
+            <p>Count: <span class="count-display">0</span></p>
+            <button class="btn-decrease">-</button>
+            <button class="btn-increase">+</button>
+        </div>
+
+        <div class="island" data-island-type="color-picker">
+            <div class="preview-box" style="height: 50px; background: black;"></div>
+            <button data-color="red">Red</button>
+            <button data-color="blue">Blue</button>
+        </div>
+        <script type="module" src="./islands-engine.js"></script>
+    </body>
+</html>
